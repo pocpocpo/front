@@ -1,0 +1,96 @@
+{
+  "name": "frontend",
+  "version": "1.0.1",
+  "private": true,
+  "dependencies": {
+    "@hookform/resolvers": "^2.8.8",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-modal": "^3.13.1",
+    "@types/styled-components": "^5.1.22",
+    "axios": "^0.26.0",
+    "classnames": "^2.3.1",
+    "date-fns": "^2.28.0",
+    "filesize": "^8.0.7",
+    "generate-changelog": "^1.8.0",
+    "i18next": "^21.6.14",
+    "i18next-browser-languagedetector": "^6.1.4",
+    "i18next-http-backend": "^1.4.0",
+    "lodash": "^4.17.21",
+    "polished": "^4.1.4",
+    "react": "^17.0.2",
+    "react-circular-progressbar": "^2.0.4",
+    "react-day-picker": "^8.0.4",
+    "react-dom": "^17.0.2",
+    "react-dropzone": "^12.0.5",
+    "react-hook-form": "^7.27.1",
+    "react-i18next": "^11.16.6",
+    "react-icons": "^4.3.1",
+    "react-modal": "^3.15.1",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "5.0.0",
+    "react-select": "^5.3.0",
+    "react-spring": "^9.4.3",
+    "styled-components": "^5.3.3",
+    "typescript": "^4.4.2",
+    "uuid": "^8.3.2",
+    "web-vitals": "^2.1.0",
+    "workbox-core": "^6.5.3",
+    "workbox-expiration": "^6.5.3",
+    "workbox-precaching": "^6.5.3",
+    "workbox-routing": "^6.5.3",
+    "workbox-strategies": "^6.5.3",
+    "yup": "^0.32.11"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "git add . && git commit -m Heroku && git push -f heroku main",
+    "lint": "eslint --ext .ts,.tsx .",
+    "lint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx ."
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react-i18next": "^8.1.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-select": "^5.0.1",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "eslint": "^8.12.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1"
+  }
+}
