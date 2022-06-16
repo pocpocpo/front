@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { RiLogoutCircleRLine } from 'react-icons/ri';
+import md5 from 'md5';
 
 import logoImg from '../../assets/logo-v2.png';
 
@@ -28,7 +29,19 @@ function Header(): JSX.Element {
         </Link>
 
         <Profile>
-          <img src="https://robohash.org/1?200x200" alt={user && user.name} />
+          <img
+            src={`https://s.gravatar.com/avatar/${md5(
+              user.email.toLowerCase().trim(),
+              {
+                encoding: 'binary',
+              },
+            )}
+            ?s=200&d=https%3A%2F%2Fui-avatars.com%2Fapi%2F${user.name.replace(
+              ' ',
+              '%2B',
+            )}/200`}
+            alt={user && user.name}
+          />
 
           <div>
             <span>{t('header.welcome')},</span>

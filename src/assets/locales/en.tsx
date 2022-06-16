@@ -2,6 +2,29 @@
 const messages = {
   en: {
     translations: {
+      'Clínico Geral': 'Primary Care',
+      'Clínica Médica': 'Medical Clinic',
+      'Cardiologia': 'Cardiology',
+      'Cancerologia': 'Cancerology',
+      'Dermatologia': 'Dermatology',
+      'Endocrinologia e Metabologia': 'Endocrinology and Metabology',
+      'Ginecologia e Obstetrícia': 'Ginecology and Obstetrics',
+      'Infectologia': 'Infectology',
+      'Medicina de Família e Comunidade': 'Family and Community Medicine',
+      'Nefrologia': 'Nephrology',
+      'Ortopedia e Traumatologia': 'Othopedy and Traumatology',
+      'Oftalmologia': 'Oftalmology',
+      'Otorrinolaringologia': 'Otolaryngology',
+      'Pediatras': 'Pediatry',
+      'Psicologia': 'Psicology',
+      'Pediatria': 'Pediatry',
+      'Psiquiatria': 'Psiquiatry',
+      'Radiologia e Diagnóstico por Imagem': 'Radiology',
+      'Urologista': 'Urologist',
+      'Urologia': 'Urology',
+      'Masculino': 'Male',
+      'Feminino': 'Female',
+
       dashboard: {
         site_under_construction: 'Site under construction',
       },
@@ -43,7 +66,7 @@ const messages = {
         gender: 'Gender',
         male: 'Male',
         female: 'Female',
-        sign_in: 'Sign in',
+        sign_in: 'Sign up',
         log_in: 'Log in',
         user_role_required: 'User role required',
         name_required: 'Name required',
@@ -94,6 +117,12 @@ const messages = {
         cancel_error_title: 'Appointment unsuccessfully canceled',
         cancel_error_description: 'Appointment unsuccessfully canceled',
         new_appointment: 'New Appointment',
+        back_to_specialties: 'Back to Specialties',
+        gender: 'Gender',
+        no_timetables_available: 'There is no available time for this day',
+        back_to_doctors: 'Back to healthcare professionals',
+        timetables_available: 'Timetables Available',
+        select_day: "📘 Select an available day from {{doctorName}}' calendar.",
       },
 
       dashboard_patient: {
@@ -120,7 +149,8 @@ const messages = {
         doctor: 'Doctor',
         patient: 'Patient',
         password_recovery: 'Password recovery',
-        enter_your_email: 'Enter your email',
+        enter_your_email:
+          'Enter your email address below to recover your password.',
         email: 'Email',
         log_in: 'Log in',
         recover_password: 'Password recovery',
@@ -136,6 +166,13 @@ const messages = {
 
       header: {
         welcome: 'Welcome',
+      },
+
+      imageUploader: {
+        delete: 'Delete',
+        drop_archive: 'Drop file here',
+        archive_not_supported: 'File not supported',
+        drag_files_here: 'Drag files here...',
       },
     },
   },

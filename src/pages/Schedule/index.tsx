@@ -99,7 +99,7 @@ const Schedule: React.FC = () => {
                       })
                     }
                   >
-                    {specialty.name}
+                    {t(specialty.name)}
                   </AnchorButton>
                 ))}
               </Specialty>

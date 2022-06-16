@@ -1,6 +1,27 @@
 const messages = {
   pt: {
     translations: {
+      'Clínico Geral': 'Clínico Geral',
+      'Clínica Médica': 'Clínica Médica',
+      'Cardiologia': 'Cardiologia',
+      'Cancerologia': 'Cancerologia',
+      'Dermatologia': 'Dermatologia',
+      'Endocrinologia e Metabologia': 'Endocrinologia e Metabologia',
+      'Ginecologia e Obstetrícia': 'Ginecologia e Obstetrícia',
+      'Infectologia': 'Infectologia',
+      'Medicina de Família e Comunidade': 'Medicina de Família e Comunidade',
+      'Nefrologia': 'Nefrologia',
+      'Ortopedia e Traumatologia': 'Ortopedia e Traumatologia',
+      'Oftalmologia': 'Oftalmologia',
+      'Otorrinolaringologia': 'Otorrinolaringologia',
+      'Pediatras': 'Pediatras',
+      'Psicologia': 'Psicologia',
+      'Pediatria': 'Pediatria',
+      'Psiquiatria': 'Psiquiatria',
+      'Radiologia e Diagnóstico por Imagem': 'Radiologia e Diagnóstico por Imagem',
+      'Urologista': 'Urologista',
+      'Urologia': 'Urologia',
+
       dashboard: {
         site_under_construction: 'Sistema em construcao',
       },
@@ -90,6 +111,14 @@ const messages = {
         cancel_error_title: 'Falha ao cancelar consulta',
         cancel_error_description: 'Falha ao cancelar consulta',
         new_appointment: 'Novo agendamento',
+        back_to_specialties: 'Voltar para especialidades',
+        gender: 'Sexo',
+        no_timetables_available:
+          'Não existe um horário disponível para este dia',
+        back_to_doctors: 'Voltar aos profissionais de saúde',
+        timetables_available: 'Horários disponíveis',
+        select_day:
+          '📘 Selecione um dia disponível na agenda de {{doctorName}}.',
       },
 
       dashboard_patient: {
@@ -134,6 +163,13 @@ const messages = {
 
       header: {
         welcome: 'Bem-vindo',
+      },
+
+      imageUploader: {
+        delete: 'Exluir',
+        drop_archive: 'Solte os arquivos aqui',
+        archive_not_supported: 'Arquivo não suportado',
+        drag_files_here: 'Arraste os arquivos aqui...',
       },
     },
   },

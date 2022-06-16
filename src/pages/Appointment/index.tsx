@@ -5,15 +5,15 @@ import { useLocation } from 'react-router-dom';
 import axios, { AxiosError } from 'axios';
 import { FiArrowLeft, FiClock, FiCalendar } from 'react-icons/fi';
 import { format, isBefore, nextMonday } from 'date-fns';
-import ptBR from 'date-fns/locale/pt-BR';
 
 import { useTranslation } from 'react-i18next';
 import { isWeekend } from 'date-fns/esm';
+import md5 from 'md5';
+import { enUS, ptBR } from 'date-fns/locale';
 import Header from '../../components/Header';
 
 import {
   Container,
-  Content,
   Breadcrumbs,
   ScheduleDoctor,
   DoctorsList,
@@ -47,6 +47,7 @@ interface IDoctorDTO {
   name: string;
   CRM: string | undefined;
   gender: 'm' | 'f';
+  email: string;
 }
 
 interface MonthAvailabilityItem {
@@ -65,8 +66,7 @@ const AppointmentPage: React.FC = () => {
   const location = useLocation();
   const { addToast } = useToast();
   const state = location.state as ILocationProps;
-  const { t } = useTranslation(['translations']);
-
+  const { t, i18n } = useTranslation(['translations']);
   const [specialty, setSpecialty] = useState<ISpecialtyDTO>(
     {} as ISpecialtyDTO,
   );
@@ -285,16 +285,25 @@ const AppointmentPage: React.FC = () => {
                   }}
                 >
                   <FiArrowLeft />
-                  Voltar aos profissionais de saúde
+                  {t('appointment.back_to_doctors')}
                 </ReturnButton>
               </Breadcrumbs>
-              <h1>Horários Disponíveis</h1>
+              <h1>{t('appointment.timetables_available')}</h1>
 
               <ScheduleDoctor>
                 <Doctor key={doctor.id}>
                   <DoctorAnchor selected>
                     <img
-                      src={`https://robohash.org/${doctor.id}?200x200`}
+                      src={`https://s.gravatar.com/avatar/${md5(
+                        doctor.email.toLowerCase().trim(),
+                        {
+                          encoding: 'binary',
+                        },
+                      )}
+                      ?s=200&d=https%3A%2F%2Fui-avatars.com%2Fapi%2F${doctor.name.replace(
+                        ' ',
+                        '%2B',
+                      )}/200`}
                       alt={`Imagem do profissional de saúde ${doctor.name}`}
                     />
 
@@ -302,7 +311,8 @@ const AppointmentPage: React.FC = () => {
                       <strong>{doctor.name}</strong>
                       <p>CRM: {doctor.CRM}</p>
                       <p>
-                        Sexo: {doctor.gender === 'm' ? 'Masculino' : 'Feminino'}
+                        {t('appointment.gender')}:{' '}
+                        {doctor.gender === 'm' ? t('Masculino') : t('Feminino')}
                       </p>
                     </div>
                   </DoctorAnchor>
@@ -311,7 +321,7 @@ const AppointmentPage: React.FC = () => {
 
               <Section>
                 {dayAvailability?.length === 0 && (
-                  <p>Não existe um horário disponível para este dia</p>
+                  <p>{t('appointment.no_timetables_available')}</p>
                 )}
 
                 {dayAvailability &&
@@ -343,17 +353,16 @@ const AppointmentPage: React.FC = () => {
                 onSelect={handleDateChange}
                 month={currentMonth}
                 onMonthChange={handleMonthChange}
-                locale={ptBR}
+                locale={i18n.resolvedLanguage === 'pt' ? ptBR : enUS}
                 disabled={[
-                  // {
-                  //   before: new Date(),
-                  // },
                   {
                     dayOfWeek: [0, 6],
                   },
                   ...disabledDays,
                 ]}
-                footer={`📘 Selecione um dia disponível na agenda de ${doctor.name}.`}
+                footer={t('appointment.select_day', {
+                  doctorName: doctor.name,
+                })}
               />
             </Calendar>
           </>
@@ -369,7 +378,7 @@ const AppointmentPage: React.FC = () => {
                   }}
                 >
                   <FiArrowLeft />
-                  Voltar as especialidades
+                  {t('appointment.back_to_specialties')}
                 </ReturnButton>
               </Breadcrumbs>
               <h1>{t('appointment.healthcare_professionals')}</h1>
@@ -389,7 +398,16 @@ const AppointmentPage: React.FC = () => {
                       }}
                     >
                       <img
-                        src={`https://robohash.org/${doctorData.id}?200x200`}
+                        src={`https://s.gravatar.com/avatar/${md5(
+                          doctorData.email.toLowerCase().trim(),
+                          {
+                            encoding: 'binary',
+                          },
+                        )}
+                        ?s=200&d=https%3A%2F%2Fui-avatars.com%2Fapi%2F${doctorData.name.replace(
+                          ' ',
+                          '%2B',
+                        )}/200`}
                         alt={`Imagem do profissional de saúde ${doctorData.name}`}
                       />
 
@@ -397,8 +415,8 @@ const AppointmentPage: React.FC = () => {
                         <strong>{doctorData.name}</strong>
                         <p>CRM: {doctorData.CRM}</p>
                         <p>
-                          Sexo:{' '}
-                          {doctorData.gender === 'm' ? 'Masculino' : 'Feminino'}
+                          {t('appointment.gender')}:{' '}
+                          {doctorData.gender === 'm' ? t('Masculino') : t('Feminino')}
                         </p>
                       </div>
                     </DoctorAnchor>

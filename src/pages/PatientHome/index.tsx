@@ -6,13 +6,7 @@ import { parseISO } from 'date-fns/esm';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
 import api from '../../services/api';
-import {
-  AppointmentCard,
-  Background,
-  ButtonNew,
-  Container,
-  Content,
-} from './styles';
+import { AppointmentCard, Background, ButtonNew, Container } from './styles';
 import { useToast } from '../../hooks/Toast';
 import { ContainerCenter } from '../../styles';
 

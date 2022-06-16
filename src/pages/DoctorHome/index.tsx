@@ -1,18 +1,15 @@
 import axios, { AxiosError } from 'axios';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { format, isBefore, parseISO } from 'date-fns';
+import { isBefore, parseISO } from 'date-fns';
 import Header from '../../components/Header';
 import api from '../../services/api';
 import { AppointmentCard, Background, Container } from './styles';
-import { useToast } from '../../hooks/Toast';
 import { ContainerCenter } from '../../styles';
 
 const DoctorHome: React.FC = () => {
   const [appointments, setAppointments] = useState<any[]>([]);
   const { t } = useTranslation(['translations']);
-
-  const { addToast } = useToast();
 
   useEffect(() => {
     (async () => {
@@ -31,24 +28,6 @@ const DoctorHome: React.FC = () => {
       }
     })();
   }, []);
-
-  const handleCancelAppointment = useCallback(
-    async (id: string) => {
-      const { status } = await api.delete(`/appointments/${id}`);
-
-      if (status !== 200) return;
-
-      setAppointments(
-        appointments.filter((appointment) => appointment.id !== id),
-      );
-      addToast({
-        type: 'success',
-        title: t('appointment.cancel_success_title'),
-        description: t('appointment.cancel_success_description'),
-      });
-    },
-    [appointments],
-  );
 
   return (
     <Container>

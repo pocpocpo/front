@@ -1,6 +1,7 @@
 import React from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { MdCheckCircle, MdError, MdLink } from 'react-icons/md';
+import { useTranslation } from 'react-i18next';
 
 import { Container, FileInfo, Preview } from './styles';
 
@@ -8,6 +9,7 @@ interface FileList {
   files: any[]
   onDelete: (id: string) => void
 }
+const { t } = useTranslation(['translations']);
 
 const FileList: React.FC<FileList> = ({ files = [], onDelete }) => (
   <Container>
@@ -29,7 +31,7 @@ const FileList: React.FC<FileList> = ({ files = [], onDelete }) => (
                 {uploadedFile.readableSize}{' '}
                 {!!uploadedFile.url && (
                 <button type="button" onClick={() => onDelete(uploadedFile.id)}>
-                  Excluir
+                  {t('imageUploader.delete')}
                 </button>
               )}
               </span>
