@@ -11,13 +11,20 @@ import Schedule from '../pages/Schedule';
 import Appointment from '../pages/Appointment';
 import PatientHome from '../pages/PatientHome';
 import DoctorHome from '../pages/DoctorHome';
+import FilterDoctorsBySpecialty from '../pages/Appointment/FilterDoctorsBySpecialty';
+import CreateAppointment from '../pages/Appointment/CreateAppointment';
 
 const Routes: React.FC = () => (
   <Switch>
     <Route path="/login" element={<SignIn />} />
     <Route path="/signup" element={<SignUp />} />
     <Route path="/schedule" element={<RequiredAuth PatientView={Schedule} />} />
-    <Route path="/schedule/specialty" element={<Appointment />} />
+    {/* <Route path="/schedule/specialty" element={<Appointment />} /> */}
+    <Route path="/schedule/specialty" element={<FilterDoctorsBySpecialty />} />
+    <Route
+      path="/schedule/specialty/appointment"
+      element={<CreateAppointment />}
+    />
     <Route
       path="/"
       element={
@@ -25,7 +32,6 @@ const Routes: React.FC = () => (
         <RequiredAuth PatientView={PatientHome} DoctorView={DoctorHome} />
       }
     />
-    <Route path="/schedule/specialty/:id" element={<Appointment />} />
     <Route path="/forgot-password" element={<ForgotPassword />} />
     <Route path="/reset-password" element={<ResetPassword />} />
     <Route path="/*" element={<SignIn />} />
